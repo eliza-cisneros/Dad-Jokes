@@ -3,11 +3,13 @@ var answer;
 var isQuestion;
 var punchDelivered = true;
 
+
 document.getElementById("button").addEventListener("click", function showJoke(){
    
    if(punchDelivered){
        document.getElementById("question").innerHTML = "";
        document.getElementById("punchLine").innerHTML = "";
+       document.getElementById("gif").src = "";
        
        var url = "https://icanhazdadjoke.com";
        fetch('https://icanhazdadjoke.com/', {
@@ -37,14 +39,20 @@ document.getElementById("button").addEventListener("click", function showJoke(){
                 punchDelivered = false;
                 document.getElementById("button").innerHTML = "what?";
             }
-            
-            
+            else{
+                let index = Math.floor(Math.random() * 11) + 1;
+                let imageSrc = "Gifs/" + index + ".gif";
+                document.getElementById("gif").src = imageSrc;
+            }
             });
    }
    else{
        document.getElementById("punchLine").innerHTML = answer;
        punchDelivered = true;
        document.getElementById("button").innerHTML = "New Joke";
+       let index = Math.floor(Math.random() * 11) + 1;
+       let imageSrc = "Gifs/" + index + ".gif";
+       document.getElementById("gif").src = imageSrc;
    }
 });
 
