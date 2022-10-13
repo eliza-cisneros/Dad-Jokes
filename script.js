@@ -37,7 +37,7 @@ document.getElementById("button").addEventListener("click", function showJoke(){
             document.getElementById("question").innerHTML = question;
             if(hasAnswer){
                 punchDelivered = false;
-                document.getElementById("button").innerHTML = "what?";
+                document.getElementById("button").innerHTML = "Reveal Punchline";
             }
             else{
                 let index = Math.floor(Math.random() * 11) + 1;
